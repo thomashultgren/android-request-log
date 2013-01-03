@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="all">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="console-jar">
+        <jar destfile="out/request-log-console.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="com.walmartlabs.requestlog.app.Console"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ gson-2.2.2.jar ../lib/out/request-log-lib.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="bin">
+		<include name="**/Console*"/>
+	    </fileset>
+            <fileset dir="../lib/bin"/>
+            <zipfileset dir="." includes="gson-2.2.2.jar"/>
+            <zipgroupfileset dir="../lib/out" includes="request-log-lib.jar"/>
+        </jar>
+    </target>
+
+    <target name="gui-jar">
+        <jar destfile="out/request-log-gui.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="com.walmartlabs.requestlog.app.Gui"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ gson-2.2.2.jar org.eclipse.swt.cocoa.macosx.x86_64_3.100.1.v4234e.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="bin">
+		<include name="**/Gui*"/>
+	    </fileset>
+            <fileset dir="../lib/bin"/>
+            <zipfileset dir="../lib" includes="gson-2.2.2.jar"/>
+            <zipfileset dir="../lib" includes="org.eclipse.swt.cocoa.macosx.x86_64_3.100.1.v4234e.jar"/>
+        </jar>
+    </target>
+
+   <target name="all" depends="console-jar,gui-jar"/>
+
+</project>

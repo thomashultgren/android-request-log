@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="WalmartLabs"
+            id="WalmartLabs">
+      </category>
+      <view
+            name="Request Log"
+            icon="icons/walmartlabs.png"
+            class="com.walmartlabs.ide.eclipse.requestlog.views.RequestLogView"
+            category="WalmartLabs"
+            id="com.walmartlabs.ide.eclipse.requestlog.views.RequestLogView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="stack"
+               id="com.walmartlabs.ide.eclipse.requestlog.views.RequestLogView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.walmartlabs.ide.eclipse.requestlog.preferences.RequestLogPreferencePage"
+            id="com.walmartlabs.ide.eclipse.requestlog.preferences.RequestLogPreferencePage"
+            name="Request Log">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.walmartlabs.ide.eclipse.requestlog.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

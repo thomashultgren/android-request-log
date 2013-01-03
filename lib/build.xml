@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="lib" name="Build lib">
+    <target name="lib">
+	<jar destfile="out/request-log-lib.jar">
+	    <fileset dir="bin/"/>
+	    <zipgroupfileset dir="." includes="gson-2.2.2.jar"/>
+	</jar>
+    </target>
+</project>
